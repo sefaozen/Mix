@@ -4,7 +4,6 @@
 
 public class LinkedListRec < E > {
 
-
     /** The list head */
     private Node < E > head;
 
@@ -126,11 +125,14 @@ public class LinkedListRec < E > {
      and false otherwise
      */
     private boolean remove(Node < E > head, Node < E > pred, E outData) {
-        if (head == null) // Base case – empty list.
-            return false;
+
+        if (head == null){
+                return false;
+        }
+
         else if (head.data.equals(outData)) { // 2nd base case.
             pred.next = head.next; // Remove head.
-            return true;
+            return  remove(pred.next,pred,outData) ||true;
         }
         else
             return remove(head.next, head, outData);
@@ -145,11 +147,10 @@ public class LinkedListRec < E > {
     public boolean remove(E outData) {
         if (head == null)
             return false;
-        else if (head.data.equals(outData)) {
+        while (head.data.equals(outData)) {
             head = head.next;
-            return true;
         }
-        else
+
             return remove(head.next, head, outData);
     }
 
