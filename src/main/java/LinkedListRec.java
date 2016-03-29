@@ -4,6 +4,7 @@
 
 public class LinkedListRec < E > {
 
+
     /** The list head */
     private Node < E > head;
 
