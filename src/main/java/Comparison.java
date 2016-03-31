@@ -51,38 +51,56 @@ public class Comparison<E> {
     public List unionOfLists()//returns union set as a list of list1 and list 2
     {
         List<E> temp = new ArrayList<E>();
+        List<E> temp1 = new ArrayList<E>();
         temp = unionOfLists1();
-        temp = unionOfLists2();
+        temp1 = unionOfLists2();
+        temp.addAll(temp1);
+        LinkedHashSet<E> forDuplicate = new LinkedHashSet<E>();
+        forDuplicate.addAll(temp);
+        temp.clear();
+        temp.addAll(forDuplicate);
+        for(int i =0; i< temp.size();i++)
+        {
+            int count=0;
+            for(int ii=i+1; ii < list1.size() ; ii++)
+            {
+                if(temp.get(i).equals(list1.get(ii)))
+                    count++;
+            }
+            for(int ii=i+1; ii < list2.size() ; ii++)
+            {
+                if(temp.get(i).equals(list2.get(ii)))
+                    count++;
+            }
+
+            if(count>1)
+                temp.remove(temp.get(i));
+        }
+
         return temp;
     }
 
     private List unionOfLists1()//returns union set as a list of list1 and list 2
     {
         List<E> temp= new ArrayList<E>();
-        temp=unionOfLists2();
+
         if(list1.size()==0 || list2.size()==0)
             return new ArrayList();
         if(list1.contains(list2.get(0)))
         {
 
             Comparison forRecursion = new Comparison(list1,list2.subList(1,list2.size()));
-            temp.addAll(forRecursion.unionOfLists());
-            LinkedHashSet<E> forDuplicate = new LinkedHashSet<E>();
-            forDuplicate.addAll(temp);
-            temp.clear();
-            temp.addAll(forDuplicate);
+            temp.addAll(forRecursion.unionOfLists1());
+
             return temp;
         }
         else
         {
             temp.add(list2.get(0));
             Comparison forRecursion = new Comparison(list1,list2.subList(1,list2.size()));
-            temp.addAll(forRecursion.unionOfLists());
+            temp.addAll(forRecursion.unionOfLists1());
 
-            LinkedHashSet<E> forDuplicate = new LinkedHashSet<E>();
-            forDuplicate.addAll(temp);
-            temp.clear();
-            temp.addAll(forDuplicate);
+
             return temp;
         }
 
