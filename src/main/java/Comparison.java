@@ -19,6 +19,10 @@ public class Comparison<E> {
         list2=b;
     }
 
+    /**
+     * It find the same element of two list and return it
+     * @return List of intersection
+     */
     public List intersectionOfLists()//returns intersection set as a list of list1 and list 2
     {
         List<E> temp= new ArrayList<E>();
@@ -48,6 +52,11 @@ public class Comparison<E> {
         }
 
     }
+
+    /**
+     * It find the union element of two list and return it
+     * @return List of union elements
+     */
     public List unionOfLists()//returns union set as a list of list1 and list 2
     {
         List<E> temp = new ArrayList<E>();
@@ -80,6 +89,10 @@ public class Comparison<E> {
         return temp;
     }
 
+    /**
+     * It find the union element of two list which list2 to list1 and return it
+     * @return List of union elements
+     */
     private List unionOfLists1()//returns union set as a list of list1 and list 2
     {
         List<E> temp= new ArrayList<E>();
@@ -105,6 +118,10 @@ public class Comparison<E> {
         }
 
     }
+    /**
+     * It find the union element of two list which list1 to list2 and return it
+     * @return List of union elements
+     */
     private List unionOfLists2()//returns union set as a list of list1 and list 2
     {
         List<E> temp= new ArrayList<E>();
@@ -137,6 +154,10 @@ public class Comparison<E> {
     }
 
 
+    /**
+     * It look list2 , it is list1's subset or not
+     * @return If it is subset, returns true
+     */
     public boolean isSubset()//return true if list2 is subset of list1
     {
         List<E> temp= new ArrayList<E>();

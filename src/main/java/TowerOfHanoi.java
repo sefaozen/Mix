@@ -13,6 +13,13 @@ public class TowerOfHanoi {
         place=new ArrayList<Integer>();
     }
 
+    /**
+     * It change all disc place where stay in src, to destination adress
+     * @param disksize disk number
+     * @param src      beginning adress
+     * @param dst      destination adress
+     * @param aux      for use
+     */
     public void towerOfHanoi(int disksize, char src,char dst, char aux)
     {
 

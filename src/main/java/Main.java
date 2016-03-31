@@ -1,13 +1,3 @@
-
-/*public class Main {
-
-
-    public static void main(String[] args) {
-
-    }
-}*/
-
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,11 +5,11 @@ public class Main {
 
     static public void main(String args[]) {
 
-        TowerOfHanoi towerOfHanoi=new TowerOfHanoi();
+        /*TowerOfHanoi towerOfHanoi=new TowerOfHanoi();
 
         towerOfHanoi.towerOfHanoi(4,'X','Y','Z');
-
-        LinkedListRec lik= new LinkedListRec();
+            */
+       /* LinkedListRec lik= new LinkedListRec();
 
         lik.add(1);
         lik.add(1);
@@ -32,10 +22,14 @@ public class Main {
         lik.add(134);
         lik.add(1);
         lik.add(1);
-        lik.remove(12);
 
-        //test function
+        System.out.println("/////Before Removing//////");
         System.out.println(lik);
+
+        lik.remove(1);
+
+        System.out.println("/////After Removing//////");
+        System.out.println(lik);*/
 
 
         List<Integer> list1=new ArrayList<Integer>();
@@ -50,20 +44,25 @@ public class Main {
         list2.add(5);
         list2.add(1);
 
+        System.out.print("List1=");
+        System.out.println(list1);
+        System.out.print("List2=");
+        System.out.println(list2);
+
         Comparison comparison=new Comparison(list1,list2);
         list1=comparison.intersectionOfLists();
         //test function
-        System.out.println(list1);
+        System.out.println("Intersection =>"+list1);
 
         //test function
         if(comparison.isSubset())
-            System.out.println("correct");
+            System.out.println("It is subset");
         else
-            System.out.println("wrong");
+            System.out.println("İt is not subset");
 
         list1=comparison.unionOfLists();
         //test function
-        System.out.println(list1);
+        System.out.println("UnionList => "+list1);
 
     }
 }
